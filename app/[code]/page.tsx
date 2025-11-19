@@ -2,6 +2,10 @@ import { NextResponse } from "next/server";
 import { db } from "@/lib/db";
 import type { QueryResult } from "pg";
 
+export default function CodePage() {
+  return <div>Redirecting...</div>;
+}
+
 export async function GET(
   _req: Request,
   { params }: { params: { code: string } }
