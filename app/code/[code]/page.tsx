@@ -1,4 +1,4 @@
-// app/code/[code]/page.tsx
+
 import React from "react";
 
 type Props = { params: { code: string } };

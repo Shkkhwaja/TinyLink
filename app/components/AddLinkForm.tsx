@@ -75,7 +75,7 @@ export default function AddLinkForm() {
       {/* BUTTON */}
       <button
         disabled={loading}
-        type="button"
+        type="submit"
         className={`mt-2 w-full py-3 rounded-lg text-white font-semibold transition-all ${
           loading
             ? "bg-gray-400 cursor-not-allowed"
