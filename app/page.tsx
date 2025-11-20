@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import React from "react";
 import AddLinkForm from "@/app/components/AddLinkForm";
 import LinksTable from "@/app/components/LinksTable";
