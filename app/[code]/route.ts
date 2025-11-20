@@ -3,14 +3,13 @@ import { db } from "@/lib/db";
 
 export async function GET(
   req: Request,
-  { params }: { params: { code: string } }
+  context: { params: Promise<{ code: string }> } 
 ) {
-  const code = await params.code;
+  const { code } = await context.params; 
 
   try {
-    // Check if code exists
     const result = await db.query(
-      "SELECT url FROM links WHERE code = $1",
+      "SELECT url, clicks FROM links WHERE code = $1",
       [code]
     );
 
@@ -28,10 +27,9 @@ export async function GET(
       [code]
     );
 
-    // Redirect to target URL
     return NextResponse.redirect(url);
-  } catch (error) {
-    console.error("REDIRECT ERROR →", error);
+  } catch (err) {
+    console.error("Redirect error:", err);
     return NextResponse.redirect(new URL("/500", req.url));
   }
 }
